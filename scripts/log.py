@@ -26,6 +26,10 @@ for port in serial.tools.list_ports.comports():
 
 	baud = 9600
 	name = 'koule_' + port.name
+	if (port.vid == 1155):
+	    print('skipped')    # strip detector skipped
+	    continue
+
 	if (port.vid == 6790):
 		baud = 115200
 		name = 'CosmicWatch_' + port.name
